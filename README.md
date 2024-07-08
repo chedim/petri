@@ -56,9 +56,11 @@ user(left) -> {
 ### Multiply Operator
 `*` can be used to create multiple copies of the same object:
 ```
-command(accept, users) --> {
-    isFree: command.accept
-  } * command.users
+dish(started) --> command(accept);
+
+command(accept, users) --> seat(
+  isFree: command.accept
+) * command.users;
 ```
 
 ## Object Deletion
