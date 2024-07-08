@@ -73,6 +73,7 @@ Like external objects, external funclets are automatically created whenever corr
 
 
 ## ToDo
+- refine multi-object consumption
 - develop virtual machine
 - develop stdlib
 - design multi-node cooperation
