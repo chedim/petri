@@ -1,5 +1,5 @@
 # Petri
-A language for developing probabalistic soup applications.
+- A language for developing probabalistic soup applications with data consumed and transformed by protein-like code bits.
 
 ## Language Status
 Idea Formulation
