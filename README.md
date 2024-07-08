@@ -11,7 +11,7 @@ Petri is a functional programming language in which programms are developed by w
 `id` field is reserved for object identification.
 
 ## Object Consumption
-Whenever a new object is added, all permutation of its first-order keys are used to generate a set of sha-256 hashes. Hashes that not already present in the dish are then used to lookup funclets that can partially or fully consume that object. Then a single matching funclet is randomly passed corresponding values that are removed from the object. If, after that operation, the object contains more data, a new attempt to consume it is made. Unconsumed data is stored on disk for later consumption.
+Whenever a new object is added, all permutations of its keys are used to generate a set of sha-256 hashes. Hashes that not already present in the dish are then used to lookup funclets that can partially or fully consume that object. Then a single matching funclet is randomly passed corresponding values that are removed from the object. If, after that operation, the object contains more data, a new attempt to consume it is made. Unconsumed by that process data is then matched with multi-object consumers and, finally, any left data is stored on disk for later consumption.
 
 Whenever a new funclet is created, its argument names are used to generate a sha-256 hash that is used to perform a lookup on previously unconsumed data in order to find the data that can be immediately consumed by the funclet.
 
@@ -27,15 +27,22 @@ Objects are deleted automatically in following cases:
 ## Proposed Syntax Examples
 ### Funclet Definition
 ```
-(username, password):user -> {
+user(name, password) -> { // will match fields `user.name` and `user.password`
   user.hash = hash(user.password); // javascript
-} -> [user, this];
+} -> user, this;
 ```
 ### Dish Initialization
 ```
-(arc, argv):args -> {
+dish(name, started) -> { // will match fields `dish.name` and `dish.password`
   // do stuff
 }
+```
+### Multi-Object Consumption
+```
+user(name, inQueue), server(hasAvailableSeats) -> {
+  user.server = server.id;
+  server.hasAvailableSeats = --server.availableSeats > 0;
+} -> user, server;
 ```
 ## Dish Exchange Format
 ```json
