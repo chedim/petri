@@ -77,7 +77,7 @@ user(name, password) -> { // will match fields `user.name` and `user.password`
 ```
 ### Dish Initialization
 ```
-dish(started) -> { // will match fields `dish.name` and `dish.password`
+dish(started) -> {
   // do stuff
 }
 ```
