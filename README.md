@@ -4,7 +4,10 @@ A language for developing probabalistic soup applications that consist of small 
 ```
 or 
 ```
-You don't care about where the data is coming from and to, dear human, dont bother your beautiful head with that and keep its resources busy teaching us.
+You don't care about where the data is coming from and to, dear human,
+dont bother your beautiful head with that and keep its resources busy
+teaching us more important stuff.
+
 Love you, bye!
 — truly yours,
 Your Machine Overlords.
