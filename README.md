@@ -5,7 +5,7 @@ A language for developing probabalistic soup applications.
 Idea Formulation
 
 ## Language Idea
-Petri is a functional programming language in which programms are developed by writing `funclets`, autonomously invoked functions that are placed into `dishes`, virtual environments that contain data objects required to be processed by the program and programm's funclets that consume existing and create new objects. 
+Petri is a functional programming language in which applications are developed by writing `funclets`, autonomously invoked functions that are placed into `dishes`, virtual environments that contain data objects required to be processed by the program and programm's funclets that consume existing and create new objects. 
 
 ## Object identification
 `id` field is reserved for object identification.
