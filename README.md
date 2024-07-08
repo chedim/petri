@@ -42,7 +42,23 @@ If a funclet returns an object with the same id as the part of a bigger object t
 user(inQueue), seat(isFree) -> {
   delete seat.isFree
   set seat.isBisy; // unfolds into `seat.isBisy = Date.now()`
-} -> user+seat, seat
+} -> user+seat, seat;
+```
+### Cutting Operator
+`-` binary operator can be used to cut one object out of another:
+```
+user(left) -> {
+  seat = user.seat;
+  set seat.isFree;
+} -> user-seat, seat;
+```
+
+### Multiply Operator
+`*` can be used to create multiple copies of the same object:
+```
+command(accept, users) --> {
+    isFree: command.accept
+  } * command.users
 ```
 
 ## Object Deletion
@@ -59,7 +75,7 @@ user(name, password) -> { // will match fields `user.name` and `user.password`
 ```
 ### Dish Initialization
 ```
-dish(name, started) -> { // will match fields `dish.name` and `dish.password`
+dish(started) -> { // will match fields `dish.name` and `dish.password`
   // do stuff
 }
 ```
