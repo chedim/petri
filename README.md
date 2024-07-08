@@ -33,6 +33,12 @@ o1(f0..n) -->
   } -> o1, o2;
 ```
 
+### Overflow Gates
+An overflow gate is activated when a specified number of matching objects exists in the dish whenever a new matching object is added:
+```
+user(inQueue):50 --> serverRedirect() + user;
+```
+
 ## Returned Objects
 A funclet may return an array of existing or new objects that will be added back into the dish and processed in it, including itself. 
 If a funclet returns an object with the same id as the part of a bigger object that was passed to it as a partial match, then that part is inserted back into the object from which the passed data has originated.
