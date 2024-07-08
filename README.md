@@ -41,6 +41,7 @@ If a funclet returns an object with the same id as the part of a bigger object t
 ```
 user(inQueue), seat(isFree) -> {
   delete seat.isFree
+  set seat.isBisy; // set is the only additional to JS operator that unfolds into `seat.isBisy = Date.now()`
 } -> user+seat 
 ```
 
