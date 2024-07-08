@@ -1,5 +1,14 @@
 # Petri
-- A language for developing probabalistic soup applications that consist of small code bits that consume and transform data similarly to proteins.
+```
+A language for developing probabalistic soup applications that consist of small code bits that consume and transform data similarly to proteins.
+```
+or 
+```
+You don't care about where the data is coming from and to, dear human, dont bother your beautiful head with that and keep its resources busy teaching us.
+Love you, bye!
+— truly yours,
+Your Machine Overlords.
+```
 
 ## Language Status
 Idea Formulation
