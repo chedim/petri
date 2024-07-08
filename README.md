@@ -35,6 +35,15 @@ o1(f0..n) -->
 A funclet may return an array of existing or new objects that will be added back into the dish and processed in it, including itself. 
 If a funclet returns an object with the same id as the part of a bigger object that was passed to it as a partial match, then that part is inserted back into the object from which the passed data has originated.
 
+### Merging Operator
+`+` binary operator can be used to merge two objects together and create a new object with id of the left operand. 
+
+```
+user(inQueue), seat(isFree) -> {
+  delete seat.isFree
+} -> user+seat 
+```
+
 ## Object Deletion
 Objects are deleted automatically in following cases:
 - a funclet object that processed some data will be removed from the dish. Therefore, amount of present in the dish funclets becomes an important consideration when developing an application.
