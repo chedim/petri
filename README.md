@@ -56,7 +56,7 @@ user(left) -> {
 ### Multiply Operator
 `*` can be used to create multiple copies of the same object:
 ```
-dish(started) --> command(accept, users: 10);
+dish(started) --> command(accept, users: 10); // accept is auto-set to current timestamp
 
 command(accept, users) --> seat(
   isFree: command.accept
