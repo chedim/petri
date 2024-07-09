@@ -82,7 +82,7 @@ Objects are deleted automatically in following cases:
 ## Syntax
 ```
 file := funclet (';' funclet)*
-funclet := 'static'? objectList ('->' code)? ('->' returnList)?
+funclet := 'static'? objectList ('->' code)? ('-->' returnList)?
 objectList := objectPattern (',' objectPattern)*
 objectPattern := path '(' argumentList? ')' (':' number)?
 path := field-name ('.' field-name)*
