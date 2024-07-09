@@ -43,14 +43,13 @@ user(inQueue):50 --> serverRedirect() + user;
 A funclet may return an array of existing or new objects that will be added back into the dish and processed in it, including itself. 
 If a funclet returns an object with the same id as the part of a bigger object that was passed to it as a partial match, then that part is inserted back into the object from which the passed data has originated.
 
-### Merging Operator
-`+` binary operator can be used to merge two objects together and create a new object with id of the left operand. 
-
+### Linking Operator
+`+` binary operator can be used add a field that points to another object:
 ```
 user(inQueue), seat(isFree) -> {
   delete seat.isFree
-  set seat.isBisy; // unfolds into `seat.isBisy = Date.now()`
-} -> user+seat, seat;
+  set seat.isBisy;            // unfolds into `seat.isBisy = Date.now()`
+} -> user+seat, seat;         // user.seat == seat
 ```
 ### Cutting Operator
 `-` binary operator can be used to cut one object out of another:
@@ -58,13 +57,13 @@ user(inQueue), seat(isFree) -> {
 user(left) -> {
   seat = user.seat;
   set seat.isFree;
-} -> user - seat, seat;
+} -> user - seat, seat;         // user.seat == undefined
 ```
 
 ### Multiply Operator
 `*` can be used to create multiple copies of the same object:
 ```
-dish(started) --> command(accept, users: 10); // accept is auto-set to current timestamp
+dish(started) --> command(accept, users: 10);                   // accept is auto-set to current timestamp
 
 command(accept, users) --> seat(
   isFree: command.accept
