@@ -44,7 +44,7 @@ A funclet may return an array of existing or new objects that will be added back
 If a funclet returns an object with the same id as the part of a bigger object that was passed to it as a partial match, then that part is inserted back into the object from which the passed data has originated.
 
 ### Linking Operator
-`+` binary operator can be used add a field that points to another object:
+`+` binary operator can be used to add a field that points to another object:
 ```
 user(inQueue), seat(isFree) -> {
   delete seat.isFree
