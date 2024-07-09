@@ -79,26 +79,26 @@ Objects are deleted automatically in following cases:
     user(loggedOut) -> delete user
 ```
 
-## Proposed Syntax Examples
-### Funclet Definition
+## Syntax
 ```
-funclet := type-name '(' argumentList? ')' ('->' code)? (-> user, this;
-```
-### Dish Initialization
-```
-dish(started) -> {
-  // do stuff
-}
-```
-### Multi-Object Consumption
-```
-user(name, inQueue), server(hasAvailableSeats) -> {
-  user.server = server.id;
-  server.hasAvailableSeats = --server.availableSeats > 0;
-} -> user, server;
+file := funclet (';' funclet)*
+funclet := 'static'? objectList ('->' code)? ('->' returnList)?
+objectList := objectPattern (',' objectPattern)*
+objectPattern := path '(' argumentList? ')' (':' number)?
+path := field-name ('.' field-name)*
+field-name := [a-zA-Z_][a-zA-Z0-9_]*
+argumentList := path (',' path)*
+code := codeBlock | statement
+codeBlock := '{' statement (';' statement)* '}'
+statement := setField | assignment | deleteOperator
+setField := 'set' path
+assignment := path '=' expression
+deleteOperator := 'delete' path
+expression := logicalExpression | arithmeticExpression | path | newObject | 
 ```
 ## External Objects
 External objects can be used to represent external inputs. Whenever a funclet that consumes fields from these objects is created, the corresponding input is opened and listened for events that are then represented as external objects. The input is closed automatically whenever there's no correspondng to it funclets in the dish.
+- `dish.started`
 - `console.in`
 - `system.fs.root`
 - `system.net.socket`
@@ -128,5 +128,6 @@ Like external objects, external funclets are automatically created whenever corr
 ## ToDo
 [x] refine multi-object consumption
 [] refine time dilation
+[] refine object reactivity
 [] develop virtual machine
 [] develop stdlib
