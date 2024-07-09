@@ -58,7 +58,7 @@ user(inQueue), seat(isFree) -> {
 user(left) -> {
   seat = user.seat;
   set seat.isFree;
-} -> user-seat, seat;
+} -> user - seat, seat;
 ```
 
 ### Multiply Operator
