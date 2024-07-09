@@ -129,5 +129,6 @@ Like external objects, external funclets are automatically created whenever corr
 [x] refine multi-object consumption
 [] refine time dilation
 [] refine object reactivity
+[] finish the syntax
 [] develop virtual machine
 [] develop stdlib
