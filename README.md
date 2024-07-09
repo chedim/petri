@@ -72,7 +72,7 @@ command(accept, users) --> seat(
 
 ## Object Deletion
 Objects are deleted automatically in following cases:
-- a funclet object that processed some data will be removed from the dish unless it returns itself using the `this` keyword. Therefore, amount of present in the dish funclets becomes an important consideration when developing an application.
+- a funclet object that processed some data will be removed from the dish unless it returns itself using the `this` keyword. Therefore, amount of present in the dish funclets becomes an important consideration when developing an application and a useful tool for load and performancd management.
 - as soon as all data in an object has been consumed, it is removed from the dish.
 - delete is explicitly caled on any of the object matches:
 ```
