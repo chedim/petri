@@ -82,9 +82,7 @@ Objects are deleted automatically in following cases:
 ## Proposed Syntax Examples
 ### Funclet Definition
 ```
-user(name, password) -> { // will match fields `user.name` and `user.password`
-  user.hash = hash(user.password); // javascript
-} -> user, this;
+funclet := type-name '(' argumentList? ')' ('->' code)? (-> user, this;
 ```
 ### Dish Initialization
 ```
@@ -128,7 +126,7 @@ Like external objects, external funclets are automatically created whenever corr
 
 
 ## ToDo
-- refine multi-object consumption
-- develop virtual machine
-- develop stdlib
-- design multi-node cooperation
+[x] refine multi-object consumption
+[] refine time dilation
+[] develop virtual machine
+[] develop stdlib
