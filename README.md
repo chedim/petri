@@ -85,16 +85,23 @@ file := funclet (';' funclet)*
 funclet := 'static'? objectList (('->' code) ('->' returnList)? | ('-->' returnList)?)
 objectList := objectPattern (',' objectPattern)*
 objectPattern := path '(' argumentList? ')' (':' number)?
-path := field-name ('.' field-name)*
-field-name := [a-zA-Z_][a-zA-Z0-9_]*
+path := name ('.' name)*
+name := [a-zA-Z_][a-zA-Z0-9_]*
 argumentList := path (',' path)*
 code := codeBlock | statement
 codeBlock := '{' statement (';' statement)* '}'
-statement := setField | assignment | deleteOperator
+statement := setField | assignment | unsetField
 setField := 'set' path
 assignment := path '=' expression
-deleteOperator := 'delete' path
-expression := logicalExpression | arithmeticExpression | path | newObject | 
+unsetField := 'unset' path
+expression := valueExpression | path | newObject
+newObject := name '(' fieldAssignments? ')'
+fieldAssignments := fieldAssignment (',' fieldAssignment)*
+fieldAssignment := name ':' valueExpression
+valueExpression := stringExpression | numericExpression | booleanExpression
+stringExpression := // todo
+numericExpression := // todo
+booleanExpression := // todo
 ```
 ## External Objects
 External objects can be used to represent external inputs. Whenever a funclet that consumes fields from these objects is created, the corresponding input is opened and listened for events that are then represented as external objects. The input is closed automatically whenever there's no correspondng to it funclets in the dish.
